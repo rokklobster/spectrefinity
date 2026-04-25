@@ -9,5 +9,14 @@ build_tree = [
     [2, 10, 11]
     ];
 paths = tile_set(build_tree);
-for (path = paths)
-    path_sweep2d(_base_profile, path, closed=true);
+for (path = paths) {
+    difference() {
+        path_sweep2d(_base_profile, path, closed=true);
+
+        for (i = [0 : len(path)-1]) {
+            translate(edge_mid(path, i))
+                rotate(edge_angle(path, i))
+                    clip_cutout();
+        }
+    }
+}

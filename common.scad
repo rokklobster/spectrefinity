@@ -143,3 +143,15 @@ function outer_boundary(tiles, eps=1e-5) =
         start_p = out[0][0]
     )
     build_loop(out, start_p, start_p, [], [], eps);
+
+/* clip logic */
+
+function edge_mid(tile, i) =
+    (tile[i] + tile[(i+1) % len(tile)]) / 2;
+
+function edge_vec_for_tile(tile, i) =
+    tile[(i+1) % len(tile)] - tile[i];
+
+function edge_angle(tile, i) =
+    let (v = edge_vec_for_tile(tile, i))
+    atan2(v[1], v[0]);
