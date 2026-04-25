@@ -48,6 +48,6 @@ NB: I heard it's possible to make a periodic tiling using the Spectre, but as I 
 
 ### Clip - `clip.scad`
 
-WIP. A really simple part to connect the tiles. This might be useful if you:
+A really simple part to connect the tiles. This might be useful if you:
 - print single tiles, 
 - print sets of tiles that shall be connected later.
