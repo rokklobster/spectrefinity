@@ -10,4 +10,4 @@ build_tree = [
     ];
 paths = tile_set(build_tree);
 for (path = paths)
-    path_sweep2d(base_profile, path, closed=true);
+    path_sweep2d(_base_profile, path, closed=true);

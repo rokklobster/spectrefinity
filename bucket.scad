@@ -15,15 +15,15 @@ bottom = 5;
 wall = 1.5;
 rim_height = 2;
 rim_gap = 0.5;
-preview = 1;
+preview = true; // [false:true]
 
 if (preview){
-    // path_sweep2d(base_profile, outline_pts, closed=true);
+    // path_sweep2d(_base_profile, outline_pts, closed=true);
     for (p = paths)
-        path_sweep2d(base_profile, p, closed=true);
+        path_sweep2d(_base_profile, p, closed=true);
 }
 else {
-difference() {
+    difference() {
       translate([0, 0, 0.1])
         linear_extrude(height = height - 0.1)
             offset(delta = -0.1)
@@ -39,7 +39,7 @@ difference() {
                 offset(delta = -(wall + rim_gap))
                     polygon(points = outline_pts);
         
-    for (p = paths)
-        path_sweep2d(base_profile, p, closed=true);
+        for (p = paths)
+            path_sweep2d(_base_profile, p, closed=true);
     }
-    }
+}

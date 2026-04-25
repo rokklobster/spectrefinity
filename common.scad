@@ -1,11 +1,11 @@
 edge_len = 16;
 
-tile_path = [0, -2, 1, 3, 3, 5, 2, 4, 7, 9, 6, 8, 11, 9];
+_tile_path = [0, -2, 1, 3, 3, 5, 2, 4, 7, 9, 6, 8, 11, 9];
 
 function edge_vec(k, s=1) = [s * cos(30 * k), s * sin(30 * k)];
     
 tile_vecs = [
-    for (t = tile_path)
+    for (t = _tile_path)
         edge_vec(t, edge_len)
     ];
 
