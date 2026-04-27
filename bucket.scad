@@ -1,26 +1,28 @@
 include <BOSL2/std.scad>
 include <BOSL2/skin.scad>
-include <common.scad>
-include <geometry.scad>
 
 build_tree = [
     [0, 4, 13],
     [1, 10, 11]
     ];
-paths = tile_set(build_tree);
-outline_pts = outer_boundary(paths);
 
 height = 35;
 bottom = 5;
 wall = 1.5;
 rim_height = 2;
 rim_gap = 0.5;
-preview = true; // [false:true]
+preview = true;
+
+include <parameters.scad>
+include <common.scad>
+include <geometry.scad>
+
+paths = tile_set(build_tree);
+outline_pts = outer_boundary(paths);
 
 if (preview){
-    // path_sweep2d(_base_profile, outline_pts, closed=true);
     for (p = paths)
-        path_sweep2d(_base_profile, p, closed=true);
+        path_sweep2d(base_profile(edge_ln), p, closed=true);
 }
 else {
     difference() {
@@ -40,6 +42,6 @@ else {
                     polygon(points = outline_pts);
         
         for (p = paths)
-            path_sweep2d(_base_profile, p, closed=true);
+            path_sweep2d(base_profile(edge_ln), p, closed=true);
     }
 }

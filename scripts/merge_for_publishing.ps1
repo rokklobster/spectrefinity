@@ -1,6 +1,6 @@
 $libs = @{}
 
-$lib_files = @('common.scad', 'geometry.scad')
+$lib_files = @('common.scad', 'geometry.scad', 'parameters.scad')
 $model_files = @('tile.scad', 'clip.scad', 'bucket.scad')
 
 if (-not (resolve-path $lib_files[0] -ErrorAction SilentlyContinue)) {

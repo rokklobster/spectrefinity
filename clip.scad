@@ -1,3 +1,4 @@
+include <parameters.scad>
 include <geometry.scad>
 
-clip();
+clip(edge_ln, clearance);
